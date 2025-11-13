@@ -26,7 +26,7 @@ const Hero = () => {
                 <span className="gradient-text">Rahman Khan</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                Robotics & Software Engineer
+                Robotics Engineer
               </p>
               <p className="text-lg text-muted-foreground max-w-xl">
                 Founder of BOT Engineers. Innovating through robotics, software, and education. 
@@ -46,7 +46,7 @@ const Hero = () => {
 
             <div className="flex gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/SanzimKhan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
@@ -54,7 +54,7 @@ const Hero = () => {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/sanzimkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
@@ -62,7 +62,7 @@ const Hero = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:sanzimrahmankhan@gmail.com"
+                href="mailto:sanzimrahmankhan54@gmail.com"
                 className="w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
               >
                 <Mail className="h-5 w-5" />

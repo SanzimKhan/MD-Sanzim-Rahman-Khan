@@ -8,30 +8,30 @@ const Portfolio = () => {
     {
       title: "BRACU Mongol Tori - Mars Rover",
       description: "Led team to URC 2024 Finals. Designed autonomous navigation system and robotic arm for sample collection.",
-      technologies: ["ROS", "Python", "Computer Vision", "Embedded Systems"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      technologies: ["ROS", "Python", "Computer Vision", "Embedded Systems", "CAD"],
+      
+      demo: "https://www.bracu-mongoltori.com/",
     },
     {
-      title: "BOT Engineers Platform",
+      title: "BOT Engineers",
       description: "Educational robotics platform helping students learn through hands-on projects and competitions.",
       technologies: ["React", "Node.js", "MongoDB", "Arduino"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      
+      demo: "https://www.botengineersbd.com/",
     },
     {
       title: "Autonomous Delivery Robot",
       description: "Indoor navigation robot using SLAM and path planning for efficient package delivery in office environments.",
       technologies: ["ROS2", "LiDAR", "OpenCV", "C++"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      
+      demo: "https://www.bracu-mongoltori.com/",
     },
     {
       title: "Robotic Arm Manipulation",
       description: "6-DOF robotic arm with inverse kinematics and computer vision for precise object manipulation.",
       technologies: ["Python", "TensorFlow", "ROS", "Gazebo"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      
+      demo: "https://www.bracu-mongoltori.com/",
     },
   ];
 
@@ -68,12 +68,7 @@ const Portfolio = () => {
                   ))}
                 </div>
                 <div className="flex gap-3 pt-2">
-                  <Button variant="outline" size="sm" className="flex-1" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </a>
-                  </Button>
+                  
                   <Button variant="default" size="sm" className="flex-1" asChild>
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
