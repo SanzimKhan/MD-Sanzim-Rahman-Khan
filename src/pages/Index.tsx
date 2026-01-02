@@ -1,7 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Portfolio from "@/components/Portfolio";
+import Gallery from "@/components/Gallery";
+import MediaCoverage from "@/components/MediaCoverage";
+import TravelMap from "@/components/TravelMap";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -12,7 +16,11 @@ const Index = () => {
       <main>
         <Hero />
         <About />
+        <Experience />
         <Portfolio />
+        <Gallery />
+        <MediaCoverage />
+        <TravelMap />
         <Contact />
       </main>
       <Footer />
