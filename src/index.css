@@ -18,81 +18,81 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    --primary: 0 0% 20%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 0 0% 32%;
+        /* Futuristic theme tokens (neon + glass) */
+        --background: 220 25% 6%; /* deep space */
+        --foreground: 210 15% 96%;
 
-    --secondary: 0 0% 88%;
-    --secondary-foreground: 0 0% 12%;
+        --card: 220 18% 10%;
+        --card-foreground: 210 15% 96%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 45%;
+        --popover: 220 18% 10%;
+        --popover-foreground: 210 15% 96%;
 
-    --accent: 0 0% 45%;
-    --accent-foreground: 0 0% 100%;
+        --primary: 190 95% 52%; /* neon cyan */
+        --primary-foreground: 0 0% 8%;
+        --primary-glow: 190 95% 62%;
 
-    --destructive: 0 0% 30%;
-    --destructive-foreground: 0 0% 100%;
+        --secondary: 280 85% 58%; /* neon magenta */
+        --secondary-foreground: 0 0% 6%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 94%;
-    --ring: 0 0% 30%;
+        --muted: 220 15% 12%;
+        --muted-foreground: 210 15% 70%;
 
-    --radius: 0.5rem;
+        --accent: 160 85% 45%;
+        --accent-foreground: 0 0% 100%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 98%), hsl(0 0% 95%));
-    --shadow-card: 0 6px 24px -4px hsl(0 0% 0% / 0.08);
-    --shadow-glow: 0 0 36px hsl(0 0% 0% / 0.12);
-  }
+        --destructive: 350 80% 50%;
+        --destructive-foreground: 0 0% 100%;
 
-  .dark {
+        --border: 220 18% 12%;
+        --input: 220 18% 12%;
+        --ring: 190 95% 60%;
 
-    /* Dark mode: deep grays and near-black */
-    --background: 0 0% 6%;
-    --foreground: 0 0% 94%;
+        --radius: 0.75rem;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 94%;
+        --gradient-primary: linear-gradient(135deg, hsl(190 95% 52%), hsl(280 85% 58%));
+        --gradient-hero: linear-gradient(180deg, hsl(220 20% 6%), hsl(260 30% 12%));
+        --shadow-card: 0 10px 40px -8px hsl(220 18% 6% / 0.6);
+        --shadow-glow: 0 0 48px hsl(190 95% 62% / 0.24);
 
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 94%;
+        /* Alternate dark mode tweaks for extra contrast */
+        --background: 220 25% 4%;
+        --foreground: 210 12% 96%;
 
-    --primary: 0 0% 78%;
-    --primary-foreground: 0 0% 6%;
-    --primary-glow: 0 0% 88%;
+        --card: 220 20% 6%;
+        --card-foreground: 210 12% 96%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 94%;
+        --popover: 220 20% 6%;
+        --popover-foreground: 210 12% 96%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+        --primary: 190 95% 62%;
+        --primary-foreground: 0 0% 6%;
+        --primary-glow: 190 95% 78%;
 
-    --accent: 0 0% 70%;
-    --accent-foreground: 0 0% 6%;
+        --secondary: 280 85% 68%;
+        --secondary-foreground: 0 0% 6%;
 
-    --destructive: 0 0% 40%;
-    --destructive-foreground: 0 0% 100%;
+        --muted: 220 18% 8%;
+        --muted-foreground: 210 15% 66%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 12%;
-    --ring: 0 0% 40%;
+        --accent: 160 85% 55%;
+        --accent-foreground: 0 0% 6%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 12%));
-    --shadow-card: 0 6px 24px -4px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 36px hsl(0 0% 0% / 0.3);
-  }
-}
+        --destructive: 350 80% 60%;
+        --destructive-foreground: 0 0% 100%;
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+        --border: 220 18% 8%;
+        --input: 220 18% 8%;
+        --ring: 190 95% 72%;
 
-  body {
+        --gradient-primary: linear-gradient(135deg, hsl(190 95% 62%), hsl(280 85% 68%));
+        --gradient-hero: linear-gradient(180deg, hsl(220 20% 4%), hsl(260 30% 8%));
+        --shadow-card: 0 12px 48px -12px hsl(220 18% 2% / 0.7);
+        --shadow-glow: 0 0 56px hsl(190 95% 78% / 0.36);
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Orbitron', Inter, system-ui, -apple-system, sans-serif;
   }
 
   html {
@@ -110,5 +110,35 @@ All colors MUST be HSL.
 
   .card-glow {
     box-shadow: var(--shadow-glow);
+  }
+
+  /* Futuristic utilities */
+  .glass {
+    background: linear-gradient(180deg, hsl(220 18% 8% / 0.5), hsl(220 18% 6% / 0.35));
+    border: 1px solid hsl(190 95% 52% / 0.12);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius);
+  }
+
+  .neon-text {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 8px hsl(var(--primary-glow));
+  }
+
+  .btn-futuristic {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-glow);
+    border: 1px solid hsl(190 95% 52% / 0.18);
+  }
+
+  .futuristic-card {
+    background: linear-gradient(180deg, hsl(220 18% 8% / 0.6), hsl(220 18% 10% / 0.4));
+    border: 1px solid hsl(220 18% 12% / 0.18);
+    box-shadow: var(--shadow-card);
+    border-radius: calc(var(--radius) + 0.25rem);
   }
 }
