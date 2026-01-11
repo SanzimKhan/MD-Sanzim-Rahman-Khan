@@ -6,7 +6,7 @@ const Gallery = () => {
 
   const galleryItems = [
     {
-      src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop",
+      src: "E:\Sanzim - New\sanzim-robot-chronicles\src\assets\IMG_2881_(1).jpg",
       alt: "Robotics workshop with students",
       caption: "Workshop Session"
     },
@@ -16,22 +16,22 @@ const Gallery = () => {
       caption: "Mars Rover Build"
     },
     {
-      src: "https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?w=600&h=400&fit=crop",
+      src: "hsrc\assets\IMG_7583.jpg",
       alt: "CAD design workstation",
       caption: "CAD Design"
     },
     {
-      src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop",
+      src: "hsrc\assets\IMG_8538.jpg",
       alt: "Team collaboration",
       caption: "Team Collaboration"
     },
     {
-      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+      src: "src\assets\IMG_8563.jpg",
       alt: "Engineering lab",
       caption: "Engineering Lab"
     },
     {
-      src: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600&h=400&fit=crop",
+      src: "hsrc\assets\IMG_9205 (1).jpg",
       alt: "3D printed components",
       caption: "3D Printing"
     },
