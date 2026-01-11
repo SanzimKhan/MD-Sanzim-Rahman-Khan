@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import profileImage from "@/assets/profile.png";
+import heroBg from "@/assets/IMG_7583.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -12,8 +13,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-accent/5 -z-10" />
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center -z-10"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* subtle overlay for readability */}
+      <div className="absolute inset-0 bg-background/70 dark:bg-background/80 -z-0" />
       
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
