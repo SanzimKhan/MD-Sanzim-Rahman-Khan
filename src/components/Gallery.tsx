@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import img2881 from "@/assets/IMG_2881_(1).jpg";
+import img7583 from "@/assets/IMG_7583.jpg";
+import img8538 from "@/assets/IMG_8538.jpg";
+import img8563 from "@/assets/IMG_8563.jpg";
+import img9205_1 from "@/assets/IMG_9205 (1).jpg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const galleryItems = [
     {
-      src: "E:\Sanzim - New\sanzim-robot-chronicles\src\assets\IMG_2881_(1).jpg",
+      src: img2881,
       alt: "Robotics workshop with students",
       caption: "Workshop Session"
     },
@@ -16,22 +21,22 @@ const Gallery = () => {
       caption: "Mars Rover Build"
     },
     {
-      src: "hsrc\assets\IMG_7583.jpg",
+      src: img7583,
       alt: "CAD design workstation",
       caption: "CAD Design"
     },
     {
-      src: "hsrc\assets\IMG_8538.jpg",
+      src: img8538,
       alt: "Team collaboration",
       caption: "Team Collaboration"
     },
     {
-      src: "src\assets\IMG_8563.jpg",
+      src: img8563,
       alt: "Engineering lab",
       caption: "Engineering Lab"
     },
     {
-      src: "hsrc\assets\IMG_9205 (1).jpg",
+      src: img9205_1,
       alt: "3D printed components",
       caption: "3D Printing"
     },
