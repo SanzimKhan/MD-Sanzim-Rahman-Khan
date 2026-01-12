@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Award, Briefcase, Users, Rocket } from "lucide-react";
-import aboutBg from "@/assets/IMG_2881_(1).jpg";
+import aboutBg from "@/assets/IMG_8538.jpg";
 
 const About = () => {
   const stats = [
