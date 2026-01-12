@@ -36,10 +36,10 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-muted/30">
+    <section id="portfolio" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Featured Projects</h2>
           <p className="text-xl text-muted-foreground">Recent Work & Innovations</p>
         </div>
 
@@ -47,7 +47,7 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl hover:card-glow transition-all duration-300 animate-fade-in overflow-hidden bg-card/50 backdrop-blur-sm"
+              className="group hover:shadow-xl hover:card-glow transition-all duration-300 animate-fade-in overflow-hidden bg-card border-border"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="h-2 bg-gradient-to-r from-primary to-accent" />
