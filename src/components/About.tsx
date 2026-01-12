@@ -20,7 +20,7 @@ const About = () => {
           backgroundPosition: 'center top',
         }}
       />
-      <div className="absolute inset-0 bg-black/30 dark:bg-black/40 backdrop-blur-sm z-0" />
+      <div className="absolute inset-0 bg-black/60 dark:bg-black/70 z-0" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
