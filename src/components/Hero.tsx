@@ -54,23 +54,23 @@ const Hero = () => {
                 href="https://github.com/SanzimKhan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
+                className="icon-visible-on-hover w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-5 w-5 icon-hidden" />
               </a>
               <a
                 href="https://www.linkedin.com/in/sanzimkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
+                className="icon-visible-on-hover w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-5 w-5 icon-hidden" />
               </a>
               <a
                 href="mailto:sanzimrahmankhan54@gmail.com"
-                className="w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
+                className="icon-visible-on-hover w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
               >
-                <Mail className="h-5 w-5" />
+                <Mail className="h-5 w-5 icon-hidden" />
               </a>
             </div>
           </div>

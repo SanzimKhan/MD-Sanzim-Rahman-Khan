@@ -103,4 +103,18 @@
   .card-glow {
     box-shadow: var(--shadow-glow);
   }
+
+  /* Icons: hidden by default, visible on parent hover for a minimal gray look */
+  .icon-hidden {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 200ms ease, transform 200ms ease, color 200ms ease;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .icon-visible-on-hover:hover .icon-hidden {
+    opacity: 1;
+    transform: translateY(0);
+    color: hsl(var(--primary));
+  }
 }
