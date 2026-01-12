@@ -19,9 +19,9 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       {/* subtle overlay for readability */}
-      <div className="absolute inset-0 bg-background/70 dark:bg-background/80 -z-0" />
+      <div className="absolute inset-0 bg-background/70 dark:bg-background/80 z-0" />
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
