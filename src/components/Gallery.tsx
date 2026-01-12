@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import img2881 from "@/assets/IMG_2881_(1).jpg";
 import img7583 from "@/assets/IMG_7583.jpg";
 import img8538 from "@/assets/IMG_8538.jpg";
 import img8563 from "@/assets/IMG_8563.jpg";
-import img9205_1 from "@/assets/IMG_9205 (1).jpg";
+import img9205 from "@/assets/IMG_9205.jpg";
 import heroBg from "@/assets/IMG_7583.jpg";
 
 const Gallery = () => {
@@ -12,7 +11,7 @@ const Gallery = () => {
 
   const galleryItems = [
     {
-      src: img2881,
+      src: img7583,
       alt: "Robotics workshop with students",
       caption: "Workshop Session"
     },
@@ -37,7 +36,7 @@ const Gallery = () => {
       caption: "Engineering Lab"
     },
     {
-      src: img9205_1,
+      src: img9205,
       alt: "3D printed components",
       caption: "3D Printing"
     },
