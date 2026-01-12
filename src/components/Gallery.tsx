@@ -5,6 +5,7 @@ import img7583 from "@/assets/IMG_7583.jpg";
 import img8538 from "@/assets/IMG_8538.jpg";
 import img8563 from "@/assets/IMG_8563.jpg";
 import img9205_1 from "@/assets/IMG_9205 (1).jpg";
+import heroBg from "@/assets/IMG_7583.jpg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
