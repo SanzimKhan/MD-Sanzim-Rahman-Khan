@@ -37,10 +37,10 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 md:py-32">
+    <section id="experience" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Experience</h2>
           <p className="text-xl text-muted-foreground">Work & Education</p>
         </div>
 
@@ -68,10 +68,10 @@ const Experience = () => {
                 </div>
 
                 {/* Content */}
-                <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
+                <div className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 className="text-xl font-bold">{exp.title}</h3>
-                    <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    <h3 className="text-xl font-bold text-card-foreground">{exp.title}</h3>
+                    <span className="text-sm font-medium text-primary-foreground bg-primary px-3 py-1 rounded-full">
                       {exp.period}
                     </span>
                   </div>

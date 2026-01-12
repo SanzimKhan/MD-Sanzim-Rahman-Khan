@@ -11,16 +11,16 @@ const TravelMap = () => {
   ];
 
   return (
-    <section id="travel" className="py-20 md:py-32 bg-muted/30">
+    <section id="travel" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Places Visited</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Places Visited</h2>
           <p className="text-xl text-muted-foreground">Where Work Takes Me</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           {/* World map illustration (simplified) */}
-          <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border mb-12 overflow-hidden">
+          <div className="relative bg-card rounded-2xl p-8 border border-border mb-12 overflow-hidden">
             <div className="absolute inset-0 opacity-5">
               <svg viewBox="0 0 1000 500" className="w-full h-full">
                 <path
@@ -34,7 +34,7 @@ const TravelMap = () => {
               {visitedPlaces.map((place, index) => (
                 <div
                   key={index}
-                  className="group flex items-start gap-3 p-4 rounded-lg bg-background/50 hover:bg-background transition-colors animate-fade-in"
+                  className="group flex items-start gap-3 p-4 rounded-lg bg-muted hover:bg-muted/80 transition-colors animate-fade-in"
                   style={{ animationDelay: `${index * 80}ms` }}
                 >
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
@@ -53,15 +53,15 @@ const TravelMap = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 text-center">
             <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
-              <p className="text-4xl font-bold gradient-text">6+</p>
+              <p className="text-4xl font-bold text-primary">6+</p>
               <p className="text-muted-foreground text-sm mt-1">Countries</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: "300ms" }}>
-              <p className="text-4xl font-bold gradient-text">10+</p>
+              <p className="text-4xl font-bold text-primary">10+</p>
               <p className="text-muted-foreground text-sm mt-1">Cities</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
-              <p className="text-4xl font-bold gradient-text">15+</p>
+              <p className="text-4xl font-bold text-primary">15+</p>
               <p className="text-muted-foreground text-sm mt-1">Events</p>
             </div>
           </div>
