@@ -18,23 +18,23 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center -z-10"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      {/* subtle overlay for readability */}
-      <div className="absolute inset-0 bg-background/70 dark:bg-background/80 z-0" />
+      {/* subtle overlay for readability (dark tint so text stays visible) */}
+      <div className="absolute inset-0 bg-black/50 dark:bg-black/40 z-0" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 animate-fade-in text-white">
             <div className="space-y-4">
-              <p className="text-primary font-semibold text-lg">Hello, I'm</p>
+              <p className="font-semibold text-lg">Hello, I'm</p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 MD Sanzim <br />
                 <span className="gradient-text">Rahman Khan</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+              <p className="text-xl md:text-2xl font-medium">
                 Robotics Engineer
               </p>
-              <p className="text-lg text-muted-foreground max-w-xl">
+              <p className="text-lg max-w-xl text-white/90">
                 Founder of BOT Engineers. Innovating through robotics, software, and education. 
                 Passionate about building technology that inspires creativity and learning.
               </p>
@@ -76,15 +76,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Image */}
+          {/* Right Content - decorative */}
           <div className="relative animate-fade-in lg:animate-float">
             <div className="relative w-full max-w-lg mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-20 animate-pulse" />
-              <img
-                src={profileImage}
-                alt="MD Sanzim Rahman Khan"
-                className="relative rounded-full w-full shadow-2xl border-4 border-card"
-              />
+              {/* profile image removed as requested */}
+              <div className="w-64 h-64 mx-auto rounded-full border-4 border-card/50 bg-card/60 shadow-2xl flex items-center justify-center">
+                <span className="text-muted-foreground">Profile removed</span>
+              </div>
             </div>
           </div>
         </div>

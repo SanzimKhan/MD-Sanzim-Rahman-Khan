@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Award, Briefcase, Users, Rocket } from "lucide-react";
+import aboutBg from "@/assets/IMG_2881_(1).jpg";
 
 const About = () => {
   const stats = [
@@ -10,7 +11,17 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32">
+    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Background image with blending to previous hero */}
+      <div
+        className="absolute inset-0 bg-cover bg-center -z-10"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.45)), url(${aboutBg})`,
+        }}
+      />
+      {/* subtle overlay to blend with hero section */}
+      <div className="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-black/30 -z-10" />
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
