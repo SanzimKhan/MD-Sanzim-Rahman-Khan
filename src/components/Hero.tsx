@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
-import profileImage from "@/assets/profile.png";
 import heroBg from "@/assets/IMG_7583.jpg";
 
 const Hero = () => {
@@ -76,16 +75,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - decorative */}
-          <div className="relative animate-fade-in lg:animate-float">
-            <div className="relative w-full max-w-lg mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-20 animate-pulse" />
-              {/* profile image removed as requested */}
-              <div className="w-64 h-64 mx-auto rounded-full border-4 border-card/50 bg-card/60 shadow-2xl flex items-center justify-center">
-                <span className="text-muted-foreground">Profile removed</span>
-              </div>
-            </div>
-          </div>
+          {/* Right column intentionally left empty to remove profile visuals */}
+          <div className="hidden lg:block" />
         </div>
       </div>
     </section>
