@@ -34,10 +34,10 @@ const MediaCoverage = () => {
   ];
 
   return (
-    <section id="media" className="py-20 md:py-32 bg-muted/30">
+    <section id="media" className="py-20 md:py-32 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Media Coverage</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Media Coverage</h2>
           <p className="text-xl text-muted-foreground">In the News</p>
         </div>
 
@@ -45,7 +45,7 @@ const MediaCoverage = () => {
           {mediaItems.map((item, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 animate-fade-in bg-card/50 backdrop-blur-sm"
+              className="group hover:shadow-lg transition-all duration-300 animate-fade-in bg-card border-border"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">

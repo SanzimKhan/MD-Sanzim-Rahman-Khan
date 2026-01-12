@@ -43,10 +43,10 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 md:py-32">
+    <section id="gallery" className="py-20 md:py-32 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Gallery</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Gallery</h2>
           <p className="text-xl text-muted-foreground">Behind the Scenes</p>
         </div>
 
@@ -54,7 +54,7 @@ const Gallery = () => {
           {galleryItems.map((item, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg cursor-pointer animate-fade-in aspect-[3/2]"
+              className="group relative overflow-hidden rounded-lg cursor-pointer animate-fade-in aspect-[3/2] border border-border"
               style={{ animationDelay: `${index * 80}ms` }}
               onClick={() => setSelectedImage(item.src)}
             >
@@ -63,9 +63,9 @@ const Gallery = () => {
                 alt={item.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-background font-semibold text-sm">{item.caption}</p>
+                  <p className="text-primary-foreground font-semibold text-sm">{item.caption}</p>
                 </div>
               </div>
             </div>

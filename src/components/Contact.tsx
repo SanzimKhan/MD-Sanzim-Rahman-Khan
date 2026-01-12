@@ -38,10 +38,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-20 md:py-32 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Get In Touch</h2>
           <p className="text-xl text-muted-foreground">Let's Connect & Collaborate</p>
         </div>
 
@@ -49,21 +49,21 @@ const Contact = () => {
           {/* Left - Contact Info */}
           <div className="space-y-8 animate-fade-in">
             <div>
-              <h3 className="text-3xl font-bold mb-6 gradient-text">Let's Work Together</h3>
-              <p className="text-lg text-muted-foreground mb-8">
+              <h3 className="text-3xl font-bold mb-6 text-primary">Let's Work Together</h3>
+              <p className="text-lg text-foreground/80 mb-8">
                 Whether you have a project in mind, want to collaborate, or just want to say hello, 
                 I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.
               </p>
             </div>
 
             <div className="space-y-6">
-              <Card className="p-6 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-shadow">
+              <Card className="p-6 bg-card border-border hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">Email</h4>
+                    <h4 className="font-semibold text-lg mb-1 text-card-foreground">Email</h4>
                     <a
                       href="mailto:sanzimrahmankhan@gmail.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
@@ -74,13 +74,13 @@ const Contact = () => {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-shadow">
+              <Card className="p-6 bg-card border-border hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">Location</h4>
+                    <h4 className="font-semibold text-lg mb-1 text-card-foreground">Location</h4>
                     <p className="text-muted-foreground">Dhaka, Bangladesh</p>
                   </div>
                 </div>
@@ -89,7 +89,7 @@ const Contact = () => {
           </div>
 
           {/* Right - Contact Form */}
-          <Card className="p-8 bg-card/50 backdrop-blur-sm animate-fade-in">
+          <Card className="p-8 bg-card border-border animate-fade-in">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
