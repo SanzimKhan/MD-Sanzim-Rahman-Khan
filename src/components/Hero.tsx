@@ -54,23 +54,23 @@ const Hero = () => {
                 href="https://github.com/SanzimKhan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="icon-visible-on-hover w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
+                className="group w-12 h-12 rounded-full bg-card transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
               >
-                <Github className="h-5 w-5 icon-hidden" />
+                <Github className="h-5 w-5 opacity-0 group-hover:opacity-100 text-muted-foreground group-hover:text-primary transition-all duration-300 translate-y-1 group-hover:translate-y-0" />
               </a>
               <a
                 href="https://www.linkedin.com/in/sanzimkhan/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="icon-visible-on-hover w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
+                className="group w-12 h-12 rounded-full bg-card transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
               >
-                <Linkedin className="h-5 w-5 icon-hidden" />
+                <Linkedin className="h-5 w-5 opacity-0 group-hover:opacity-100 text-muted-foreground group-hover:text-primary transition-all duration-300 translate-y-1 group-hover:translate-y-0" />
               </a>
               <a
                 href="mailto:sanzimrahmankhan54@gmail.com"
-                className="icon-visible-on-hover w-12 h-12 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:card-glow"
+                className="group w-12 h-12 rounded-full bg-card transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
               >
-                <Mail className="h-5 w-5 icon-hidden" />
+                <Mail className="h-5 w-5 opacity-0 group-hover:opacity-100 text-muted-foreground group-hover:text-primary transition-all duration-300 translate-y-1 group-hover:translate-y-0" />
               </a>
             </div>
           </div>

@@ -14,14 +14,14 @@ const About = () => {
     <section id="about" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background image with strong overlay for readability */}
       <div
-        className="absolute inset-0 bg-cover bg-center -z-10"
+        className="absolute inset-0 bg-cover bg-center -z-20"
         style={{
           backgroundImage: `url(${aboutBg})`,
         }}
       />
-      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm -z-10" />
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/40 backdrop-blur-sm z-0" />
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">About Me</h2>
           <p className="text-xl text-muted-foreground">Who I Am & What I Do</p>
@@ -34,7 +34,7 @@ const About = () => {
               Robotics Engineer & Tech Entrepreneur
             </h3>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              I'm a Robotics Engineer, Founder and CEO of <span className="text-primary font-semibold">BOT Engineers</span>, 
+              I'm a Robotics Engineer, Founder and CEO of <span className="text-primary font-semibold">BOT Engineer</span>, 
               and former Team Lead of BRACU Mongol Tori (URC 2024 Finalist). My passion lies in creating innovative 
               robotics solutions that bridge the gap between technology and education.
             </p>
