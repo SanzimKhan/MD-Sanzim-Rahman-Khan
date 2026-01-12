@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Award, Briefcase, Users, Rocket } from "lucide-react";
-import aboutBg from "@/assets/IMG_8538.jpg";
+import aboutBg from "@/assets/IMG_2881_(1).jpg";
 
 const About = () => {
   const stats = [
@@ -14,9 +14,10 @@ const About = () => {
     <section id="about" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background image with strong overlay for readability */}
       <div
-        className="absolute inset-0 bg-cover bg-center -z-10"
+        className="absolute inset-0 bg-cover bg-no-repeat -z-10"
         style={{
           backgroundImage: `url(${aboutBg})`,
+          backgroundPosition: 'center top',
         }}
       />
       <div className="absolute inset-0 bg-black/30 dark:bg-black/40 backdrop-blur-sm z-0" />
