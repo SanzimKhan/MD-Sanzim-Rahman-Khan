@@ -6,7 +6,7 @@ const Experience = () => {
       type: "work",
       title: "Founder & CEO",
       company: "BOT Engineers",
-      period: "2022 - Present",
+      period: "2025 - Present",
       description: "Leading robotics education startup, developing curriculum, and mentoring students in robotics and programming.",
       skills: ["Leadership", "Robotics", "Education", "Business Development"]
     },
@@ -14,24 +14,16 @@ const Experience = () => {
       type: "work",
       title: "Team Lead",
       company: "BRACU Mongol Tori",
-      period: "2022 - 2024",
-      description: "Led the Mars Rover team to URC 2024 Finals. Managed 30+ team members across multiple subsystems.",
-      skills: ["ROS", "System Integration", "Team Management", "CAD Design"]
-    },
-    {
-      type: "work",
-      title: "Robotics Engineer Intern",
-      company: "Tech Solutions BD",
-      period: "2021 - 2022",
-      description: "Developed automation solutions for manufacturing processes using industrial robotics.",
-      skills: ["PLC Programming", "Industrial Automation", "SolidWorks"]
+      period: "2023 - 2024",
+      description: "Led the Mars Rover team to URC 2024 Finals. Managed 130+ team members across multiple subsystems.",
+      skills: ["ROS", "System Integration", "Team Management", "Rover Design"]
     },
     {
       type: "education",
-      title: "BSc in Mechanical Engineering",
+      title: "BSc in Computer Science",
       company: "BRAC University",
-      period: "2020 - 2024",
-      description: "Specialized in robotics and mechatronics. Senior project on autonomous navigation systems.",
+      period: "2021 - Present",
+      description: "Specialized in robotics and mechatronics. Relevant coursework: Robotics, AI, Embedded Systems, Project Management.",
       skills: ["Mechanical Design", "Thermodynamics", "Control Systems"]
     },
   ];

@@ -11,50 +11,51 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="about" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
       {/* Background image with strong overlay for readability */}
       <div
         className="absolute inset-0 bg-cover bg-no-repeat -z-10"
         style={{
           backgroundImage: `url(${aboutBg})`,
           backgroundPosition: 'center top',
+          backgroundSize: 'cover',
         }}
       />
-      <div className="absolute inset-0 bg-black/60 dark:bg-black/70 z-0" />
+      <div className="absolute inset-0 bg-black/80 dark:bg-black/90 z-0" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">About Me</h2>
-          <p className="text-xl text-muted-foreground">Who I Am & What I Do</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">About Me</h2>
+          <p className="text-xl text-white/80">Who I Am & What I Do</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 animate-fade-in">
-            <h3 className="text-3xl font-bold text-primary">
+            <h3 className="text-3xl font-bold text-white">
               Robotics Engineer & Tech Entrepreneur
             </h3>
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              I'm a Robotics Engineer, Founder and CEO of <span className="text-primary font-semibold">BOT Engineer</span>, 
-              and former Team Lead of BRACU Mongol Tori (URC 2024 Finalist). My passion lies in creating innovative 
+            <p className="text-lg text-white/90 leading-relaxed">
+              I'm a Robotics Engineer, Founder and CEO of <span className="text-primary font-semibold">BOT Engineer</span>,
+              and former Team Lead of BRACU Mongol Tori (URC 2023 and URC 2024 Finalist). My passion lies in creating innovative
               robotics solutions that bridge the gap between technology and education.
             </p>
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              With expertise in robotics design, system integration, and software development, I've led teams to 
+            <p className="text-lg text-white/90 leading-relaxed">
+              With expertise in robotics design, system integration and software development, I've led teams to
               compete at international levels and built educational programs that inspire the next generation of engineers.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                <p className="text-foreground/70">Experienced in ROS, Python, C++, and embedded systems</p>
+                <p className="text-white/80">Experienced in ROS, Python, C++ and embedded systems</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                <p className="text-foreground/70">Specialized in autonomous navigation and robotic manipulation</p>
+                <p className="text-white/80">Specialized in autonomous navigation and robotic manipulation</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                <p className="text-foreground/70">Passionate about STEM education and mentorship</p>
+                <p className="text-white/80">Passionate about STEM education and mentorship</p>
               </div>
             </div>
           </div>
