@@ -4,10 +4,8 @@ const TravelMap = () => {
   const visitedPlaces = [
     { name: "Utah, USA", type: "Competition", description: "URC 2024 Finals" },
     { name: "Dhaka, Bangladesh", type: "Home", description: "Base of Operations" },
-    { name: "Singapore", type: "Conference", description: "STEM Education Summit" },
-    { name: "Dubai, UAE", type: "Exhibition", description: "Tech Expo 2023" },
-    { name: "Kolkata, India", type: "Workshop", description: "Robotics Workshop" },
-    { name: "Cox's Bazar, Bangladesh", type: "Team Building", description: "Team Retreat" },
+    { name: "Bangalore, India", type: "International Rover Challange 2023", description: "" },
+    { name: "Mumbai, India", type: "Travel", description: "Juhu, Andheri" },
   ];
 
   return (
@@ -72,3 +70,5 @@ const TravelMap = () => {
 };
 
 export default TravelMap;
+
+
