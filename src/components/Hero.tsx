@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
-import heroBg from "@/assets/IMG_7583.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -12,12 +11,9 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center -z-10"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
-      {/* subtle overlay for readability (dark tint so text stays visible) */}
+      {/* Removed background image */}
+      <div className="absolute inset-0 bg-primary/10 dark:bg-primary/20 -z-10" /> {/* Theme-based background */}
+      {/* subtle overlay for readability */}
       <div className="absolute inset-0 bg-black/50 dark:bg-black/40 z-0" />
       
       <div className="container mx-auto px-4 relative z-10">

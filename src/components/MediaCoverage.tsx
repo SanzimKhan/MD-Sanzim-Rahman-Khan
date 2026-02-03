@@ -4,32 +4,52 @@ import { ExternalLink, Newspaper } from "lucide-react";
 const MediaCoverage = () => {
   const mediaItems = [
     {
-      title: "BRACU Team Reaches URC 2024 Finals",
-      source: "The Daily Star",
-      date: "2024",
-      description: "BRACU Mongol Tori team qualifies for University Rover Challenge finals in Utah, USA.",
-      link: "#"
+      title: "স্বপ্নবাজ তরুণ | ঈদ স্পেশাল দেশ 24 | ০১ জুলাই ২০২৩ | Channel 24", // Updated title
+      source: "Channel 24", // Updated source
+      date: "2023", // Updated year
+      description: "স্বপ্নবাজ তরুণদের নিয়ে ঈদ স্পেশাল অনুষ্ঠান।", // Updated description
+      link: "https://youtu.be/fEI0oUBJN_I?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNDM3NjI2MzE2OTczNzg4AAEeO9A6dy_uXlGr6TC8UrFw8xWeiQxWEiKq5wekgnc", // Updated link
+      thumbnail: "https://img.youtube.com/vi/fEI0oUBJN_I/maxresdefault.jpg" // Added thumbnail
     },
     {
-      title: "BOT Engineers: Revolutionizing Robotics Education",
-      source: "Tech Magazine BD",
-      date: "2023",
-      description: "How a young entrepreneur is making robotics accessible to students across Bangladesh.",
-      link: "#"
+      title: "Let's hear from Md Sanzim Rahman Khan, Co-Team Lead of BRACU Mogol-Tori", // Updated title
+      source: "BRACU Mogol-Tori", // Updated source
+      date: "2024", // Updated year
+      description: "Phoenix rover set to compete in the finals of the University Rover Challenge (URC) 2024 at the Mars Desert Research Station in Utah!", // Updated description
+      link: "https://www.facebook.com/share/r/1Doo4QXCMM/", // Updated link
+      thumbnail: "https://via.placeholder.com/600" // Placeholder thumbnail for Facebook link
     },
     {
-      title: "Youth in STEM: Inspiring the Next Generation",
-      source: "Prothom Alo",
-      date: "2023",
-      description: "Feature story on young innovators leading the robotics movement in Bangladesh.",
-      link: "#"
+      title: "Prothom Alo - 2023", // Updated title
+      source: "Prothom Alo", // Updated source
+      date: "2023", // Updated year
+      description: "Feature story on young innovators leading the robotics movement in Bangladesh.", // Retained description
+      link: "https://www.facebook.com/reel/3264043150409235", // Retained link
+      thumbnail: "https://via.placeholder.com/600" // Updated placeholder thumbnail for Prothom Alo
     },
     {
-      title: "Mars Rover Competition: Bangladesh's Rising Stars",
-      source: "TechCrunch BD",
-      date: "2024",
-      description: "Coverage of the team's journey to international robotics competitions.",
-      link: "#"
+      title: "From Challenges to Triumph: BRACU Mongol Tori’s Journey at the University Rover Challenge 2023", // New entry
+      source: "BRACU Express", // New source
+      date: "2023", // New date
+      description: "An inspiring story of BRACU Mongol Tori’s achievements at the University Rover Challenge 2023.", // New description
+      link: "https://bracuexpress.com/from-challenges-to-triumph-bracu-mongol-toris-journey-at-the-university-rover-challenge/", // New link
+      thumbnail: "https://via.placeholder.com/600" // Updated placeholder thumbnail for BRACU Express
+    },
+    {
+      title: "Mongol-Tori Phoenix: BRAC University’s next-generation Mars rover", // New entry
+      source: "The Daily Star", // New source
+      date: "2023", // New date
+      description: "A detailed look at BRAC University’s next-generation Mars rover, Mongol-Tori Phoenix.", // New description
+      link: "https://online91.thedailystar.net/campus/campus/news/mongol-tori-phoenix-brac-universitys-next-generation-mars-rover-3603341", // New link
+      thumbnail: "https://via.placeholder.com/600" // Updated placeholder thumbnail for The Daily Star
+    },
+    {
+      title: "From Dhaka to MDRS: The Journey of Our Former Team Leads | Mongol Tori Podcast | Episode 2", // New entry
+      source: "Mongol Tori Podcast", // New source
+      date: "2023", // New date
+      description: "A podcast episode exploring the journey of former team leads from Dhaka to the Mars Desert Research Station.", // New description
+      link: "https://www.youtube.com/watch?v=naOagrkBlSo&list=PL7hkrFHWxIE9z4IP7xzE3mqz9HoxA0Wsz", // New link
+      thumbnail: "https://img.youtube.com/vi/naOagrkBlSo/maxresdefault.jpg" // Added thumbnail
     },
   ];
 
@@ -41,7 +61,7 @@ const MediaCoverage = () => {
           <p className="text-xl text-muted-foreground">In the News</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6"> {/* Adjusted layout for two covers per row */}
           {mediaItems.map((item, index) => (
             <Card
               key={index}
@@ -49,9 +69,13 @@ const MediaCoverage = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Newspaper className="h-6 w-6 text-primary" />
+                <div className="flex flex-col items-start gap-4">
+                  <div className="w-full h-96 rounded-lg bg-primary/10 flex items-center justify-center shrink-0"> {/* Thumbnail size retained */}
+                    <img
+                      src={item.thumbnail}
+                      alt={item.title}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-2">
