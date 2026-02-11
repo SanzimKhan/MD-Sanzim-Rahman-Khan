@@ -1,18 +1,72 @@
-import { useState } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import contactImage from "@/assets/Jesan and Rafid.jpg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const { toast } = useToast();
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      const infoCards = section.querySelectorAll("[data-contact-card]");
+      const formElements = section.querySelectorAll("[data-form-input]");
+      const submitBtn = section.querySelector("[data-submit-btn]");
+
+      gsap.from(infoCards, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 60%",
+          end: "top 30%",
+          scrub: 0.6,
+        },
+        opacity: 0,
+        x: -40,
+        stagger: 0.1,
+      });
+
+      gsap.from(formElements, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 60%",
+          end: "top 30%",
+          scrub: 0.6,
+        },
+        opacity: 0,
+        x: 40,
+        stagger: 0.08,
+      });
+
+      gsap.from(submitBtn, {
+        scrollTrigger: {
+          trigger: section,
+          start: "center 70%",
+          end: "center 40%",
+          scrub: 0.6,
+        },
+        opacity: 0,
+        y: 20,
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,35 +92,47 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-muted">
+    <section id="contact" className="py-20 md:py-32 bg-background reveal-on-scroll" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Get In Touch</h2>
-          <p className="text-xl text-muted-foreground">Let's Connect & Collaborate</p>
+        <div className="text-center mb-16">
+          <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Contact</p>
+          <h2 className="text-5xl md:text-6xl font-semibold mt-4 text-foreground">Get In Touch</h2>
+          <p className="text-lg text-muted-foreground flex items-center justify-center gap-2 mt-4">
+            <MessageCircle className="h-5 w-5" />Let's Connect & Collaborate
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left - Contact Info */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8">
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-primary">Let's Work Together</h3>
+              <h3 className="text-3xl font-semibold mb-6 text-foreground">Let's Work Together</h3>
               <p className="text-lg text-foreground/80 mb-8">
                 Whether you have a project in mind, want to collaborate, or just want to say hello, 
                 I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.
               </p>
             </div>
 
+            <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
+              <img
+                src={contactImage}
+                alt="Collaboration moment"
+                className="h-52 w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
             <div className="space-y-6">
-              <Card className="p-6 bg-card border-border hover:shadow-lg transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary" />
+              <Card data-contact-card className="relative p-6 bg-card border border-border transition-all duration-300">
+                <div className="flex items-start gap-4 relative">
+                  <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center flex-shrink-0 text-foreground">
+                    <Mail className="h-6 w-6" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1 text-card-foreground">Email</h4>
                     <a
                       href="mailto:sanzimrahmankhan@gmail.com"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
                     >
                       sanzimrahmankhan@gmail.com
                     </a>
@@ -74,10 +140,10 @@ const Contact = () => {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-card border-border hover:shadow-lg transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-primary" />
+              <Card data-contact-card className="relative p-6 bg-card border border-border transition-all duration-300">
+                <div className="flex items-start gap-4 relative">
+                  <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center flex-shrink-0 text-foreground">
+                    <MapPin className="h-6 w-6" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1 text-card-foreground">Location</h4>
@@ -89,19 +155,20 @@ const Contact = () => {
           </div>
 
           {/* Right - Contact Form */}
-          <Card className="p-8 bg-card border-border animate-fade-in">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <Card className="relative p-8 bg-card border border-border">
+            <form onSubmit={handleSubmit} className="space-y-6 relative">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name
                 </label>
                 <Input
+                  data-form-input
                   id="name"
                   type="text"
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full"
+                  className="w-full bg-background border-border focus:border-foreground transition-colors"
                 />
               </div>
 
@@ -110,12 +177,13 @@ const Contact = () => {
                   Your Email
                 </label>
                 <Input
+                  data-form-input
                   id="email"
                   type="email"
                   placeholder="john@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full"
+                  className="w-full bg-background border-border focus:border-foreground transition-colors"
                 />
               </div>
 
@@ -124,16 +192,17 @@ const Contact = () => {
                   Your Message
                 </label>
                 <Textarea
+                  data-form-input
                   id="message"
                   placeholder="Tell me about your project or just say hello..."
                   rows={6}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full resize-none"
+                  className="w-full resize-none bg-background border-border focus:border-foreground transition-colors"
                 />
               </div>
 
-              <Button type="submit" className="w-full font-semibold" size="lg">
+              <Button data-submit-btn type="submit" className="w-full font-semibold bg-foreground text-background hover:bg-foreground/90 transition-colors" size="lg">
                 <Send className="mr-2 h-5 w-5" />
                 Send Message
               </Button>
