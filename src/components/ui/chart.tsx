@@ -27,6 +27,7 @@ function useChart() {
   }
 
   return context;
+  
 }
 
 const ChartContainer = React.forwardRef<

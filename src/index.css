@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,25 +8,25 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 0 0% 12%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 0 0% 24%;
+    --primary-glow: 0 0% 22%;
 
-    --secondary: 0 0% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 85%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 0 0% 30%;
+    --accent: 0 0% 0%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 0% 10%;
@@ -32,14 +34,14 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 96%;
-    --ring: 0 0% 20%;
+    --ring: 0 0% 0%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 40%));
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 20%));
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 96%));
-    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.06);
-    --shadow-glow: 0 0 36px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 12px 40px -24px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 24px hsl(0 0% 0% / 0.08);
   }
 
   .dark {
@@ -84,15 +86,41 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
   }
 
-  html {
+  html,
+  body {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 }
 
 @layer utilities {
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+    transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;

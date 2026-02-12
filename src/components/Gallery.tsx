@@ -1,13 +1,48 @@
-import { useState } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ImageIcon } from "lucide-react";
+import img3410 from "@/assets/IMG_3410.jpg";
 import img7583 from "@/assets/IMG_7583.jpg";
+import img7943 from "@/assets/IMG_7943.JPG";
 import img8538 from "@/assets/IMG_8538.jpg";
 import img8563 from "@/assets/IMG_8563.jpg";
 import img9205 from "@/assets/IMG_9205.jpg";
-import heroBg from "@/assets/IMG_7583.jpg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const grid = gridRef.current;
+
+    if (!section || !grid) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      const items = grid.querySelectorAll('[data-gallery-item]');
+      gsap.set(items, { opacity: 0, scale: 0.85, y: 30 });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 65%",
+            end: "top 15%",
+            scrub: 0.8,
+          },
+        })
+        .to(items, { opacity: 1, scale: 1, y: 0, ease: "power2.out", stagger: 0.06 }, 0);
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   const galleryItems = [
     {
@@ -16,12 +51,12 @@ const Gallery = () => {
       caption: "Workshop Session"
     },
     {
-      src: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&h=400&fit=crop",
+      src: img3410,
       alt: "Mars rover prototype",
       caption: "Mars Rover Build"
     },
     {
-      src: img7583,
+      src: img7943,
       alt: "CAD design workstation",
       caption: "CAD Design"
     },
@@ -43,29 +78,36 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 md:py-32 bg-muted">
+    <section id="gallery" ref={sectionRef} className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Gallery</h2>
-          <p className="text-xl text-muted-foreground">Behind the Scenes</p>
+        <div className="text-center mb-16">
+          <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Gallery</p>
+          <h2 className="text-4xl md:text-5xl font-semibold mt-4 text-foreground">Behind the Scenes</h2>
+          <p className="text-lg text-muted-foreground mt-4">Workshops, builds, and the moments that shaped the work.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px] md:auto-rows-[300px]">
           {galleryItems.map((item, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg cursor-pointer animate-fade-in aspect-[3/2] border border-border"
-              style={{ animationDelay: `${index * 80}ms` }}
+              data-gallery-item
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer border border-border shadow-sm transition-all duration-500 ${
+                index % 5 === 0 ? "md:col-span-2 md:row-span-2" : ""
+              }`}
               onClick={() => setSelectedImage(item.src)}
             >
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white font-semibold text-sm">{item.caption}</p>
+              <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between p-6">
+                <div className="flex justify-end">
+                  <ImageIcon className="w-6 h-6 text-white/80 group-hover:text-white transition-all duration-300" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-lg">{item.caption}</p>
+                  <p className="text-white/70 text-sm mt-1">{item.alt}</p>
                 </div>
               </div>
             </div>
@@ -74,13 +116,16 @@ const Gallery = () => {
       </div>
 
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-transparent border-none">
+        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/90 border-border rounded-2xl backdrop-blur-md">
           {selectedImage && (
-            <img
-              src={selectedImage.replace('w=600&h=400', 'w=1200&h=800')}
-              alt="Gallery preview"
-              className="w-full h-auto rounded-lg"
-            />
+            <div className="relative bg-black/50">
+              <img
+                src={selectedImage}
+                alt="Gallery preview"
+                className="w-full h-auto rounded-lg shadow-2xl ring-1 ring-white/20"
+              />
+              <div className="absolute top-4 right-4 text-white/60 text-sm">Press ESC to close</div>
+            </div>
           )}
         </DialogContent>
       </Dialog>
