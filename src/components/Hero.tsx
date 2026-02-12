@@ -5,7 +5,6 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/IMG_7583.jpg";
-import profileImage from "@/assets/profile.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,18 +112,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right image */}
-          <div className="hidden lg:flex justify-end">
-            <div className="relative w-80 h-96 rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
-              <img
-                src={profileImage}
-                alt="Sanzim portrait"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            </div>
-          </div>
+          {/* right image removed */}
         </div>
       </div>
     </section>
