@@ -5,6 +5,10 @@ import travelImage from "@/assets/IMG_7943.JPG";
 
 const TravelMap = () => {
   const visitedPlaces = [
+    { name: "Salt Lake City, USA", type: "Competition", description: "URC 2024 Finals" },
+    { name: "Las Vegas, USA", type: "Event", description: "Conference / Expo" },
+    { name: "Los Angeles, USA", type: "Travel", description: "Industry visits" },
+    { name: "Hong Kong", type: "Travel", description: "Collaborations & Meetups" },
     { name: "Utah, USA", type: "Competition", description: "URC 2024 Finals" },
     { name: "Dhaka, Bangladesh", type: "Home", description: "Base of Operations" },
     { name: "Bangalore, India", type: "International Rover Challange 2023", description: "" },

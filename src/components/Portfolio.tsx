@@ -5,7 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import mongolToriImage from "@/assets/MT_at_UTAH.jpg";
 const botEngineersImage = new URL("../assets/BOT Engineers.jpg", import.meta.url).href;
 import deliveryRobotImage from "@/assets/noor-lazy-bot.png";
+const manzimImage = new URL('../assets/Manzim.png', import.meta.url).href
 import roboticArmImage from "@/assets/IMG_8538.jpg";
+const armImage = new URL('../assets/arm.png', import.meta.url).href
 const myWorkImage = new URL("../assets/2023-033_0265.jpg", import.meta.url).href;
 import useReveal from "@/hooks/use-reveal";
 
@@ -46,14 +48,16 @@ const Portfolio = () => {
       title: "Phoenix 2.0 - MANZIM",
       description: "Mahir and I are developing Phoenix 2.0 — an open-source delivery robot with CAD-mechanical design, SLAM-based navigation, and robust path-planning for efficient package delivery.",
       technologies: ["CAD Mechanical", "ROS2", "LiDAR", "OpenCV", "C++"],
-      image: deliveryRobotImage,
+      image: manzimImage,
+      imageClass: "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 scale-95",
       demo: "https://www.bracu-mongoltori.com/",
     },
     {
       title: "Robotic Arm Manipulation",
-      description: "6-DOF robotic arm with inverse kinematics and computer vision for precise object manipulation.",
+      description: "6-DOF robotic arm with inverse kinematics and computer vision for precise object manipulation. After multiple iterations, we successfully implemented the arm by modifying the actuator for the first time.",
       technologies: ["Python", "TensorFlow", "ROS", "Gazebo"],
-      image: roboticArmImage,
+      image: armImage,
+      imageClass: "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 scale-90",
       demo: "https://www.bracu-mongoltori.com/",
     },
   ];
@@ -95,7 +99,7 @@ const Portfolio = () => {
                     <img
                       src={project.image}
                       alt={`${project.title} featured`}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className={project.imageClass ?? "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"}
                       loading="lazy"
                     />
                   </div>

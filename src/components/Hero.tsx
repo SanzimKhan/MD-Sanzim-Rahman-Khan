@@ -92,7 +92,6 @@ const Hero = () => {
               <p className="text-lg max-w-xl text-white/85 leading-relaxed">
                 Founder of BOT Engineers — an ecosystem for robotics and AI, empowering people by making robotics accessible and building a stronger community. Passionate about building technology that inspires creativity and learning.
               </p>
-              <p className="text-sm text-white/70 mt-2">Skills: ROS · C++ · Python · SLAM · Computer Vision · Embedded Systems · CAD</p>
             </div>
 
             <div className="flex flex-wrap gap-4">
