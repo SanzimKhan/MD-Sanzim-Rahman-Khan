@@ -7,6 +7,7 @@ import Gallery from "@/components/Gallery";
 import MediaCoverage from "@/components/MediaCoverage";
 import Portfolio from "@/components/Portfolio";
 import TravelMap from "@/components/TravelMap";
+import Creative from "@/components/Creative";
 
 const SectionPage = ({
   section,
@@ -18,7 +19,8 @@ const SectionPage = ({
     | "gallery"
     | "media"
     | "travel"
-    | "contact";
+    | "contact"
+    | "creative";
 }) => {
   const renderSection = () => {
     switch (section) {
@@ -32,6 +34,8 @@ const SectionPage = ({
         return <Gallery />;
       case "media":
         return <MediaCoverage />;
+      case "creative":
+        return <Creative />;
       case "travel":
         return <TravelMap />;
       case "contact":

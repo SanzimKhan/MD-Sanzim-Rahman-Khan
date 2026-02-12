@@ -13,10 +13,9 @@ const About = () => {
   useReveal(contentRef, { selector: "*:not(svg)", stagger: 0.06, y: 20, filter: "blur(6px)", duration: 0.8 });
 
   const stats = [
-    { icon: Briefcase, value: "4+", label: "Years Experience" },
-    { icon: Rocket, value: "25+", label: "Projects Completed" },
-    { icon: Award, value: "3", label: "International Comp" },
-    { icon: Users, value: "100+", label: "Students Taught" },
+    { icon: Briefcase, value: "7+", label: "Years Experience" },
+    { icon: Rocket, value: "27+", label: "Projects Completed" },
+    { icon: Award, value: "3", label: "International Competitions" },
   ];
 
   return (
@@ -25,7 +24,7 @@ const About = () => {
         <header className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">About</p>
           <h2 className="text-4xl md:text-5xl font-semibold mt-4">Who I Am & What I Do</h2>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">Robotics, leadership and education — building practical solutions and training the next generation.</p>
+          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">I work in robotics, leadership and education, building practical solutions and helping train the next generation of engineers.</p>
         </header>
 
         <div className="grid md:grid-cols-2 gap-8 items-start bg-card/60 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
@@ -50,14 +49,14 @@ const About = () => {
               <p>
                 These experiences gave me the chance to push boundaries and immerse myself in real-world robotics
                 challenges that demanded creativity, adaptability and critical problem-solving. They strengthened my
-                leadership, communication and teamwork skills, while deepening my passion for robotics, automation and
+                leadership, communication and teamwork skills, and deepened my passion for robotics, automation and
                 innovation.
               </p>
               <p>
-                Building on these experiences, I founded BOT Engineers — an ecosystem for robotics and AI that empowers people by making robotics accessible and by building a stronger community.
+                Building on that work, I founded BOT Engineers, an ecosystem for robotics and AI that empowers people by making robotics accessible and by building a stronger community.
               </p>
               <div className="mt-4 p-4 rounded-lg bg-gradient-to-r from-indigo-600/5 to-rose-600/5 border border-border">
-                <h4 className="font-semibold text-foreground">Founder — BOT Engineers</h4>
+                <h4 className="font-semibold text-foreground">Founder, BOT Engineers</h4>
                 <p className="text-sm text-foreground/80">An ecosystem empowering people through hands-on education and community-driven robotics projects.</p>
               </div>
               <div className="flex gap-3 mt-3">

@@ -41,6 +41,7 @@ const Navigation = () => {
     { href: "/about", label: "About" },
     { href: "/experience", label: "Experience" },
     { href: "/portfolio", label: "Projects" },
+    { href: "/creative", label: "Creative" },
     { href: "/gallery", label: "Gallery" },
     { href: "/media", label: "Media" },
     { href: "/travel", label: "Travel" },

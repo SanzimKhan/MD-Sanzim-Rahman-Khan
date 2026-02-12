@@ -90,7 +90,7 @@ const Hero = () => {
                 <span className="text-white">Rahman Khan</span>
               </h1>
               <p className="text-lg max-w-xl text-white/85 leading-relaxed">
-                Founder of BOT Engineers — an ecosystem for robotics and AI, empowering people by making robotics accessible and building a stronger community. Passionate about building technology that inspires creativity and learning.
+                Founder of BOT Engineers, an ecosystem for robotics and AI that empowers people by making robotics accessible and building a stronger community. I'm passionate about creating technology that inspires curiosity, creativity and learning.
               </p>
             </div>
 

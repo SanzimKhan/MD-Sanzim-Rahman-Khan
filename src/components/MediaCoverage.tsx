@@ -7,6 +7,7 @@ const sanzimThumb = new URL('../assets/Lets hear from sanzim rahman khan.png', i
 const img0157 = new URL('../assets/IMG_0157.jpg', import.meta.url).href
 const dailyStarImg = new URL('../assets/the daily star.jpg', import.meta.url).href
 const urcImg = new URL('../assets/urc 2023.png', import.meta.url).href
+const urc2024Img = new URL('../assets/urc 2024.png', import.meta.url).href
 import img7583 from "@/assets/IMG_7583.jpg";
 import img7943 from "@/assets/IMG_7943.JPG";
 import img8538 from "@/assets/IMG_8538.jpg";
@@ -34,7 +35,7 @@ const MediaCoverage = () => {
       date: "2024", // Updated year
       description: "Phoenix rover set to compete in the finals of the University Rover Challenge (URC) 2024 at the Mars Desert Research Station in Utah!", // Updated description
       link: "https://www.facebook.com/share/r/1Doo4QXCMM/", // Updated link
-      thumbnail: sanzimThumb,
+      thumbnail: urc2024Img,
       objectPosition: 'center top'
     },
     {
@@ -90,7 +91,7 @@ const MediaCoverage = () => {
         if (v) return `https://img.youtube.com/vi/${v}/hqdefault.jpg`;
       }
 
-      // For other hosts we don't have a stable pattern — return null so UI falls back to local thumbnail
+      // For other hosts we don't have a stable pattern; return null so the UI falls back to the local thumbnail
       return null;
     } catch (e) {
       return null;

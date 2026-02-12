@@ -46,7 +46,7 @@ const Portfolio = () => {
     },
     {
       title: "Phoenix 2.0 - MANZIM",
-      description: "Mahir and I are developing Phoenix 2.0 — an open-source delivery robot with CAD-mechanical design, SLAM-based navigation, and robust path-planning for efficient package delivery.",
+      description: "Mahir and I are developing Phoenix 2.0, an open-source delivery robot that combines CAD-mechanical design, SLAM-based navigation and robust path-planning for efficient package delivery.",
       technologies: ["CAD Mechanical", "ROS2", "LiDAR", "OpenCV", "C++"],
       image: manzimImage,
       imageClass: "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 scale-95",

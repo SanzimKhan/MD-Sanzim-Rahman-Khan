@@ -51,6 +51,7 @@ const App = () => {
             <Route path="/experience" element={<SectionPage section="experience" />} />
             <Route path="/portfolio" element={<SectionPage section="portfolio" />} />
             <Route path="/gallery" element={<SectionPage section="gallery" />} />
+            <Route path="/creative" element={<SectionPage section="creative" />} />
             <Route path="/admin/gallery" element={<AdminGallery />} />
             <Route path="/media" element={<SectionPage section="media" />} />
             <Route path="/travel" element={<SectionPage section="travel" />} />

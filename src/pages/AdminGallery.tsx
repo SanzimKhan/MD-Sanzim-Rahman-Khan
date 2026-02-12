@@ -36,7 +36,7 @@ const AdminGallery = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold">Admin — Gallery</h1>
+        <h1 className="text-2xl font-semibold">Gallery Admin</h1>
         <Link to="/" className="text-sm text-muted-foreground hover:underline">Back to site</Link>
       </div>
 
