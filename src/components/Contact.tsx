@@ -1,15 +1,12 @@
-import { useState, useLayoutEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import contactImage from "@/assets/Jesan and Rafid.jpg";
-
-gsap.registerPlugin(ScrollTrigger);
+import useReveal from "@/hooks/use-reveal";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -20,53 +17,9 @@ const Contact = () => {
     message: "",
   });
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const infoCards = section.querySelectorAll("[data-contact-card]");
-      const formElements = section.querySelectorAll("[data-form-input]");
-      const submitBtn = section.querySelector("[data-submit-btn]");
-
-      gsap.from(infoCards, {
-        scrollTrigger: {
-          trigger: section,
-          start: "top 60%",
-          end: "top 30%",
-          scrub: 0.6,
-        },
-        opacity: 0,
-        x: -40,
-        stagger: 0.1,
-      });
-
-      gsap.from(formElements, {
-        scrollTrigger: {
-          trigger: section,
-          start: "top 60%",
-          end: "top 30%",
-          scrub: 0.6,
-        },
-        opacity: 0,
-        x: 40,
-        stagger: 0.08,
-      });
-
-      gsap.from(submitBtn, {
-        scrollTrigger: {
-          trigger: section,
-          start: "center 70%",
-          end: "center 40%",
-          scrub: 0.6,
-        },
-        opacity: 0,
-        y: 20,
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+  useReveal(sectionRef, { selector: "[data-contact-card]", stagger: 0.1, x: -40, opacity: 0, duration: 0.8, scrub: 0.6, start: "top 60%", end: "top 30%" });
+  useReveal(sectionRef, { selector: "[data-form-input]", stagger: 0.08, x: 40, opacity: 0, duration: 0.8, scrub: 0.6, start: "top 60%", end: "top 30%" });
+  useReveal(sectionRef, { selector: "[data-submit-btn]", y: 20, opacity: 0, duration: 0.7, scrub: 0.6, start: "center 70%", end: "center 40%" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,8 +45,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background reveal-on-scroll" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <>
+      <section id="contact" className="py-20 md:py-32 bg-background reveal-on-scroll" ref={sectionRef}>
+        <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Contact</p>
           <h2 className="text-5xl md:text-6xl font-semibold mt-4 text-foreground">Get In Touch</h2>
@@ -209,8 +163,9 @@ const Contact = () => {
             </form>
           </Card>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

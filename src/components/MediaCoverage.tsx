@@ -1,47 +1,24 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import img3410 from "@/assets/IMG_3410.jpg";
+import useReveal from "@/hooks/use-reveal";
+import img3410 from "@/assets/IMG_7943.JPG";
+const sanzimThumb = new URL('../assets/Lets hear from sanzim rahman khan.png', import.meta.url).href
+const img0157 = new URL('../assets/IMG_0157.jpg', import.meta.url).href
+const dailyStarImg = new URL('../assets/the daily star.jpg', import.meta.url).href
+const urcImg = new URL('../assets/urc 2023.png', import.meta.url).href
 import img7583 from "@/assets/IMG_7583.jpg";
 import img7943 from "@/assets/IMG_7943.JPG";
 import img8538 from "@/assets/IMG_8538.jpg";
 import img8563 from "@/assets/IMG_8563.jpg";
-import img9205 from "@/assets/IMG_9205.jpg";
+import img9205 from "@/assets/IMG_8538.jpg";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const MediaCoverage = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    const grid = gridRef.current;
-
-    if (!section || !grid) {
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      const cards = grid.querySelectorAll('[data-media-card]');
-      gsap.set(cards, { opacity: 0, y: 50 });
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top 60%",
-            end: "top 10%",
-            scrub: 0.8,
-          },
-        })
-        .to(cards, { opacity: 1, y: 0, ease: "none", stagger: 0.08 }, 0);
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+  useReveal(gridRef, { selector: "[data-media-card]", stagger: 0.08, y: 50, opacity: 0, duration: 0.9, scrub: 0.8, start: "top 60%", end: "top 10%" });
   const mediaItems = [
     {
       title: "স্বপ্নবাজ তরুণ | ঈদ স্পেশাল দেশ 24 | ০১ জুলাই ২০২৩ | Channel 24", // Updated title
@@ -57,7 +34,8 @@ const MediaCoverage = () => {
       date: "2024", // Updated year
       description: "Phoenix rover set to compete in the finals of the University Rover Challenge (URC) 2024 at the Mars Desert Research Station in Utah!", // Updated description
       link: "https://www.facebook.com/share/r/1Doo4QXCMM/", // Updated link
-      thumbnail: img3410
+      thumbnail: sanzimThumb,
+      objectPosition: 'center top'
     },
     {
       title: "Prothom Alo - 2023", // Updated title
@@ -65,7 +43,7 @@ const MediaCoverage = () => {
       date: "2023", // Updated year
       description: "Feature story on young innovators leading the robotics movement in Bangladesh.", // Retained description
       link: "https://www.facebook.com/reel/3264043150409235", // Retained link
-      thumbnail: img8538
+      thumbnail: img0157
     },
     {
       title: "From Challenges to Triumph: BRACU Mongol Tori’s Journey at the University Rover Challenge 2023", // New entry
@@ -73,7 +51,7 @@ const MediaCoverage = () => {
       date: "2023", // New date
       description: "An inspiring story of BRACU Mongol Tori’s achievements at the University Rover Challenge 2023.", // New description
       link: "https://bracuexpress.com/from-challenges-to-triumph-bracu-mongol-toris-journey-at-the-university-rover-challenge/", // New link
-      thumbnail: img9205
+      thumbnail: urcImg
     },
     {
       title: "Mongol-Tori Phoenix: BRAC University’s next-generation Mars rover", // New entry
@@ -81,7 +59,7 @@ const MediaCoverage = () => {
       date: "2023", // New date
       description: "A detailed look at BRAC University’s next-generation Mars rover, Mongol-Tori Phoenix.", // New description
       link: "https://online91.thedailystar.net/campus/campus/news/mongol-tori-phoenix-brac-universitys-next-generation-mars-rover-3603341", // New link
-      thumbnail: img7943
+      thumbnail: dailyStarImg
     },
     {
       title: "From Dhaka to MDRS: The Journey of Our Former Team Leads | Mongol Tori Podcast | Episode 2", // New entry
@@ -93,9 +71,36 @@ const MediaCoverage = () => {
     },
   ];
 
+  const getThumbnailFromLink = (link: string | undefined) => {
+    if (!link) return null;
+    try {
+      const u = new URL(link);
+      const host = u.hostname.toLowerCase();
+
+      // YouTube short link
+      if (host.includes("youtu.be")) {
+        const id = u.pathname.replace(/^\//, "");
+        return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      }
+
+      // YouTube long link
+      if (host.includes("youtube.com")) {
+        const params = new URLSearchParams(u.search);
+        const v = params.get("v");
+        if (v) return `https://img.youtube.com/vi/${v}/hqdefault.jpg`;
+      }
+
+      // For other hosts we don't have a stable pattern — return null so UI falls back to local thumbnail
+      return null;
+    } catch (e) {
+      return null;
+    }
+  };
+
   return (
-    <section id="media" ref={sectionRef} className="py-20 md:py-32 bg-muted">
-      <div className="container mx-auto px-4">
+    <>
+      <section id="media" ref={sectionRef} className="py-20 md:py-32 bg-muted">
+        <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Media</p>
           <h2 className="text-4xl md:text-5xl font-semibold mt-4 text-foreground">Media Coverage</h2>
@@ -113,8 +118,9 @@ const MediaCoverage = () => {
                 <div className="flex flex-col items-start gap-4">
                   <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-muted border border-border">
                     <img
-                      src={item.thumbnail}
+                      src={getThumbnailFromLink(item.link) ?? item.thumbnail}
                       alt={item.title}
+                      style={{ objectPosition: (item as any).objectPosition ?? 'center' }}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -142,8 +148,9 @@ const MediaCoverage = () => {
             </Card>
           ))}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

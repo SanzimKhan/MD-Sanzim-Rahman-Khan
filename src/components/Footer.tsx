@@ -1,50 +1,14 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from "react";
+import useReveal from "@/hooks/use-reveal";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const columns = section.querySelectorAll("[data-footer-col]");
-      const socialButtons = section.querySelectorAll("[data-social-btn]");
-
-      gsap.from(columns, {
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "top 50%",
-          scrub: 0.6,
-        },
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-      });
-
-      gsap.from(socialButtons, {
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "top 50%",
-          scrub: 0.6,
-        },
-        opacity: 0,
-        scale: 0.8,
-        stagger: 0.08,
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+  useReveal(sectionRef, { selector: "[data-footer-col]", stagger: 0.1, y: 30, opacity: 0, duration: 0.8, scrub: 0.6, start: "top 80%", end: "top 50%" });
+  useReveal(sectionRef, { selector: "[data-social-btn]", stagger: 0.08, scale: 0.8, opacity: 0, duration: 0.8, scrub: 0.6, start: "top 80%", end: "top 50%" });
 
   return (
     <footer className="bg-card border-t border-border reveal-on-scroll" ref={sectionRef}>
@@ -123,9 +87,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border/50 pt-8 text-center">
-          <p className="text-muted-foreground flex items-center justify-center gap-2">
+          <p className="text-muted-foreground text-center">
             <span>&copy; {currentYear} MD Sanzim Rahman Khan. All rights reserved.</span>
-            <Heart className="h-4 w-4 text-foreground fill-foreground/60 animate-pulse" />
           </p>
         </div>
       </div>

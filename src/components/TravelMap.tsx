@@ -1,10 +1,7 @@
 import { Globe } from "lucide-react";
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import useReveal from "@/hooks/use-reveal";
 import travelImage from "@/assets/IMG_7943.JPG";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const TravelMap = () => {
   const visitedPlaces = [
@@ -16,56 +13,13 @@ const TravelMap = () => {
 
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const places = section.querySelectorAll("[data-place-card]");
-      const stats = section.querySelectorAll("[data-stat]");
-
-      gsap.fromTo(
-        places,
-        { opacity: 0, y: 40 },
-        {
-          scrollTrigger: {
-            trigger: section,
-            start: "top 60%",
-            end: "top 30%",
-            scrub: 0.6,
-          },
-          opacity: 1,
-          y: 0,
-          stagger: 0.08,
-          immediateRender: false,
-        }
-      );
-
-      gsap.fromTo(
-        stats,
-        { opacity: 0, scale: 0.8, y: 30 },
-        {
-          scrollTrigger: {
-            trigger: section,
-            start: "center 70%",
-            end: "center 40%",
-            scrub: 0.6,
-          },
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          stagger: 0.1,
-          immediateRender: false,
-        }
-      );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+  useReveal(sectionRef, { selector: "[data-place-card]", stagger: 0.08, y: 40, opacity: 0, duration: 0.8, scrub: 0.6, start: "top 60%", end: "top 30%" });
+  useReveal(sectionRef, { selector: "[data-stat]", stagger: 0.1, y: 30, scale: 0.8, opacity: 0, duration: 0.8, scrub: 0.6, start: "center 70%", end: "center 40%" });
 
   return (
-    <section id="travel" className="py-20 md:py-32 bg-background" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <>
+      <section id="travel" className="py-20 md:py-32 bg-background" ref={sectionRef}>
+        <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Travel</p>
           <h2 className="text-4xl md:text-5xl font-semibold mt-4 text-foreground">Places Visited</h2>
@@ -119,8 +73,9 @@ const TravelMap = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -23,22 +23,43 @@ const Hero = () => {
     }
 
     const ctx = gsap.context(() => {
-      gsap.set(bg, { scale: 1.15, filter: "blur(6px)" });
-      gsap.set(text, { opacity: 0, y: 40, filter: "blur(8px)" });
+      const prefersReduced =
+        typeof window !== "undefined" &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=60%",
-            scrub: true,
-            pin: true,
-            anticipatePin: 1,
-          },
-        })
-        .to(bg, { scale: 1, filter: "blur(0px)", ease: "none" }, 0)
-        .to(text, { opacity: 1, y: 0, filter: "blur(0px)", ease: "none" }, 0.1);
+      // Subtle performance hints
+      gsap.set(bg, { scale: 1.15, filter: "blur(6px)", willChange: "transform, filter" });
+
+      // Animate individual text children for a smoother staggered reveal
+      const textChildren = text.querySelectorAll<HTMLElement>("*:not(svg)");
+      gsap.set(textChildren, { opacity: 0, y: 30, filter: "blur(8px)", willChange: "opacity, transform, filter" });
+
+      if (prefersReduced) {
+        // Respect reduced motion: apply final styles without animation
+        gsap.set(bg, { scale: 1, filter: "blur(0px)" });
+        gsap.set(textChildren, { opacity: 1, y: 0, filter: "blur(0px)" });
+        return;
+      }
+
+      // Smooth scrub and easing for a refined feel
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=100%",
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+
+      tl.to(bg, { scale: 1, filter: "blur(0px)", ease: "power2.out" }, 0)
+        .to(
+          textChildren,
+          { opacity: 1, y: 0, filter: "blur(0px)", ease: "power2.out", stagger: 0.06 },
+          0.08
+        );
     }, section);
 
     return () => ctx.revert();
@@ -69,9 +90,9 @@ const Hero = () => {
                 <span className="text-white">Rahman Khan</span>
               </h1>
               <p className="text-lg max-w-xl text-white/85 leading-relaxed">
-                Founder of BOT Engineers. Innovating through robotics, software, and education. 
-                Passionate about building technology that inspires creativity and learning.
+                Founder of BOT Engineers — an ecosystem for robotics and AI, empowering people by making robotics accessible and building a stronger community. Passionate about building technology that inspires creativity and learning.
               </p>
+              <p className="text-sm text-white/70 mt-2">Skills: ROS · C++ · Python · SLAM · Computer Vision · Embedded Systems · CAD</p>
             </div>
 
             <div className="flex flex-wrap gap-4">
@@ -81,7 +102,7 @@ const Hero = () => {
                   Get in Touch
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="font-semibold border-white/60 text-white" asChild>
+              <Button variant="outline" size="lg" className="font-semibold border-white/60 text-white bg-transparent" asChild>
                 <Link to="/portfolio">View Portfolio</Link>
               </Button>
             </div>
