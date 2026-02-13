@@ -15,6 +15,9 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+
+# ignore large local videos
+src/assets/BC_5.mp4
 .idea
 .DS_Store
 *.suo
